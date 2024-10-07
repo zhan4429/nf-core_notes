@@ -1,0 +1,10 @@
+Increase FASTQC and FASTP memory from 4.GB to 8.GB.
+```
+    withName: 'FASTQC'{
+        cpus   = { check_max( 4 * task.attempt, 'cpus' ) }
+        memory = { check_max( 8.GB * task.attempt, 'memory' ) }
+    }
+    withName: 'FASTP'{
+        cpus   = { check_max( 12 * task.attempt, 'cpus' ) }
+        memory = { check_max( 8.GB * task.attempt, 'memory' ) }
+```
